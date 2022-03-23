@@ -25,34 +25,15 @@ public class PostsRepositoryTest {
     }
 
     @Test
-    public void post_save(){
-
-        String title = "test board";
-        String content = "test main board";
-
-        postsRepository.save(
-                Posts.builder()
-                        .title(title)
-                        .content(content)
-                        .author("1234@naver.com")
-                        .build()
-        );
-
-        List<Posts> postsList = postsRepository.findAll();
-
-        Posts posts = postsList.get(0);
-        assertThat(posts.getTitle()).isEqualTo(title);
-        assertThat(posts.getContent()).isEqualTo(content);
-    }
-
-    @Test
-    public void BaseTimeEntity_register(){
+    public void 게시글저장_불러오기() {
         //given
-        LocalDateTime now = LocalDateTime.of(2022,3,20,21,00,0);
+        String title = "테스트 게시글";
+        String content = "테스트 본문";
+
         postsRepository.save(Posts.builder()
-                .title("title")
-                .content("content")
-                .author("author")
+                .title(title)
+                .content(content)
+                .author("jojoldu@gmail.com")
                 .build());
 
         //when
@@ -60,8 +41,27 @@ public class PostsRepositoryTest {
 
         //then
         Posts posts = postsList.get(0);
+        assertThat(posts.getTitle()).isEqualTo(title);
+        assertThat(posts.getContent()).isEqualTo(content);
+    }
 
-        System.out.println(">>>>>>>>>>>>>>>>>>>> createDate ="+posts.getCreatedDate()+", modifiedDate="+posts.getModifiedDate());
+    @Test
+    public void BaseTimeEntity_등록() {
+        //given
+        LocalDateTime now = LocalDateTime.of(2019, 6, 4, 0, 0, 0);
+        postsRepository.save(Posts.builder()
+                .title("title")
+                .content("content")
+                .author("author")
+                .build());
+        //when
+        List<Posts> postsList = postsRepository.findAll();
+
+        //then
+        Posts posts = postsList.get(0);
+
+        System.out.println(">>>>>>>>>>>> createDate=" + posts.getCreatedDate() + ", modifiedDate=" + posts.getModifiedDate());
+
         assertThat(posts.getCreatedDate()).isAfter(now);
         assertThat(posts.getModifiedDate()).isAfter(now);
     }

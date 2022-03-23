@@ -16,7 +16,7 @@ public class IndexControllerTest {
     @Autowired
     private TestRestTemplate restTemplate;
     @Test
-    public void mainpage_loading() {
+    public void 메인페이지_로딩() {
         String body = this.restTemplate.getForObject("/", String.class);
         //then
         assertThat(body).contains("start spring web prj");
