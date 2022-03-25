@@ -1,6 +1,6 @@
 package com.work99.springboot.domain.posts;
 import com.work99.springboot.domain.BaseTimeEntity;
-import jdk.jfr.events.CertificateId;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
