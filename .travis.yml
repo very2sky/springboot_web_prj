@@ -3,7 +3,9 @@ jdk:
   - openjdk8
 branches:
   only:
-    - master
+    - main
+before_install:
+  - chmod +x gradlew
 # Travis CI sever home
 cache: :
   directories:
