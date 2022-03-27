@@ -33,13 +33,13 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
 
     bucket: yangbum-springbootweb-build
-    key: springboot2-key.zip #키가 그룹안에 키 인가 그냥 그거 키인가
+    key: springboot_web_prj.zip #키가 그룹안에 키 인가 그냥 그거 키인가
 
     bundle_type: zip
     application: springbootcodedeploy
 
-    deployment_group: springboot2deploy-group
-    region: ap-northeast-2
+    deployment_group: springboot-us-east
+    region: us-east-1
     wait-util-deployed: true
     on:
       branch: main
