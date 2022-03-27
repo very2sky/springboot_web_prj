@@ -33,13 +33,13 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
 
     bucket: yangbum-springbootweb-build
-    key: springboot2-webservice.zip
+    key: springboot2-key.zip
 
     bundle_type: zip
     application: springbootcodedeploy
 
-    deployment_group: springboot-webservice
-    region: us-east-1
+    deployment_group: springboot2deploy-group
+    region: ap-northeast-2
     wait-util-deployed: true
     on:
       branch: main
