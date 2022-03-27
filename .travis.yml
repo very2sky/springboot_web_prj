@@ -13,7 +13,7 @@ cache:
     - '$HOME/.gradle'
 script: "./gradlew clean build"
 
-#CI complete to alram email
+#CI
 notifications:
   email:
     recipients:
