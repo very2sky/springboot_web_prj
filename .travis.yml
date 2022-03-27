@@ -39,7 +39,7 @@ deploy:
     application: springbootcodedeploy
 
     deployment_group: springboot-webservice
-    region: ap-northeast-2
+    region: us-east-1
     wait-util-deployed: true
     on:
       branch: main
