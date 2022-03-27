@@ -18,14 +18,32 @@ before_deploy:
   - mv springboot_web_prj.zip deploy/springboot_web_prj.zip
 deploy:
   - provider: s3
-    access_key_id: AKIARRUU3G2IL5KVIFJJ
-    secret_access_key: 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
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
     bucket: yangbum-springbootweb-build
     region: ap-northeast-2
     skip_cleanup: true
     acl: private
     local_dir: deploy
     wait-until-deployed: true
+    on:
+      branch: main
+  - provider: codedeploy
+    access_key_id: : $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
+
+    bucket: yangbum-springbootweb-build
+    key: springboot2-webservice.zip
+
+    bundle_type: zip
+    application: springbootcodedeploy
+
+    deployment_group: springboot-webservice
+    region: ap-northeast-2
+    wait-util-deployed: true
+    on:
+      branch: main
+
 
 
 #CI
