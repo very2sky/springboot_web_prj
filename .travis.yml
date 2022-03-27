@@ -33,7 +33,7 @@ deploy:
     secret_access_key: $AWS_SECRET_KEY
 
     bucket: yangbum-springbootweb-build
-    key: springboot2-key.zip
+    key: springboot2-key.zip #키가 그룹안에 키 인가 그냥 그거 키인가
 
     bundle_type: zip
     application: springbootcodedeploy
