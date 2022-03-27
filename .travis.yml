@@ -12,6 +12,21 @@ cache:
     - '$HOME/.m2/repository'
     - '$HOME/.gradle'
 script: "./gradlew clean build"
+before_deploy:
+  - zip -r springboot_web_prj *
+  - mkdir -p deploy
+  - mv springboot_web_prj.zip deploy/springboot_web_prj.zip
+deploy:
+  - provider: s3
+    access_key_id: AKIARRUU3G2IL5KVIFJJ
+    secret_access_key: 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
+    bucket: yangbum-springbootweb-build
+    region: ap-northeast-2
+    skip_cleanup: true
+    acl: private
+    local_dir: deploy
+    wait-until-deployed: true
+
 
 #CI
 notifications:
